@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    background-image: linear-gradient(black, black, yellow);
+    color: white;
+}
+.h-primary{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-family: 'Merienda', cursive;
+    font-size: 45px;
+    text-shadow: 0 0 7px white;
+}
+.h-secondary{
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    padding: 23px 22px;
+    color: #faff00;
+    text-shadow: 0px 0px 20px #faff00;
+}
+.h-secondary span{
+    text-decoration: underline;
+}
+
+body a img{
+    width: 35%;
+    border-radius: 12px;
+    margin: 8px 115px;
+    transition: transform .3s ease-in-out;
+}
+body a img:hover{
+    box-shadow: 0px 0px 14px 0px white;
+    transform: scale(1.1);
+    border: none;
+}
