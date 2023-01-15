@@ -1,3 +1,4 @@
+// Theme Script
 let theme = localStorage.getItem('theme')
 
 if (theme == null) {
@@ -37,7 +38,7 @@ function setTheme(mode) {
 	localStorage.setItem('theme', mode)
 }
 
-
+// Ruler Script
 let ruler = document.querySelector('.ruler');
 let height = 5;
 let increasing = true;
