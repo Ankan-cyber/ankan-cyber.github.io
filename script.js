@@ -56,3 +56,15 @@ setInterval(function() {
         increasing = true;
     }
 }, 80);
+
+
+document.querySelector('.contact-wrapper').addEventListener('click', function() {
+	let call = document.querySelector('#callus-container')
+	call.classList.add('visible')
+	console.log("fire")
+});
+document.querySelector('#navigation').addEventListener('click', function() {
+	let call = document.querySelector('#callus-container')
+	call.classList.add('visible')
+	console.log("fire")
+});
