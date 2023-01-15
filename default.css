@@ -386,6 +386,12 @@ h6 {
 	color: #4b5156;
 	font-size: 14px;
 }
+#callus-container{
+	visibility: hidden;
+}
+.visible{
+	visibility: visible;
+}
 
 @media screen and (max-width: 1200px) {
 	.main-container {
