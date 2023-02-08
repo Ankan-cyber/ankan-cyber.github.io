@@ -43,17 +43,28 @@ let ruler = document.querySelector('.ruler');
 let height = 5;
 let increasing = true;
 
-setInterval(function() {
-    if(increasing) {
-        height += 5;
-    } else {
-        height -= 5;
-    }
-    ruler.style.height = height + 'vh';
-    if(height === 50) {
-        increasing = false;
-    }
-    if(height === 5) {
-        increasing = true;
-    }
+setInterval(function () {
+	if (increasing) {
+		height += 5;
+	} else {
+		height -= 5;
+	}
+	ruler.style.height = height + 'vh';
+	if (height === 50) {
+		increasing = false;
+	}
+	if (height === 5) {
+		increasing = true;
+	}
 }, 80);
+
+//Typed Script
+
+let options = {
+	strings: ['Ankan Roy', 'a Coder', 'a Full Stack Dev', 'a Cyber Security Student', 'a Wifi Pentaster'],
+	typeSpeed: 100,
+	backSpeed: 50,
+	loop: true,
+};
+
+let typed = new Typed('#typed', options);
