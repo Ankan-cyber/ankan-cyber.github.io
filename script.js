@@ -61,7 +61,7 @@ setInterval(function () {
 //Typed Script
 
 let options = {
-	strings: ['Ankan Roy', 'a Coder', 'a Full Stack Dev', 'a Cyber Security Student', 'a Wifi Pentaster'],
+	strings: ['Ankan Roy', 'a Cyber Security Student', 'a Wifi Pentester', 'a Full Stack Dev', 'a Scripter'],
 	typeSpeed: 100,
 	backSpeed: 50,
 	loop: true,
