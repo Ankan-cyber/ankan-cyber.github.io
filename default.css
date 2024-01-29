@@ -518,33 +518,24 @@ h6 {
 	transition: .5s;
 }
 
-.socials-ul li:nth-child(1) a:hover .fa {
-	color: #3b5998;
-}
 
-.socials-ul li:nth-child(2) a:hover .fa {
+
+.socials-ul li:nth-child(1) a:hover .fa {
 	color: #55acee;
 }
 
-.socials-ul li:nth-child(3) a:hover .fa {
+.socials-ul li:nth-child(2) a:hover .fa {
 	color: #171515;
 }
 
-.socials-ul li:nth-child(4) a:hover .fa {
+.socials-ul li:nth-child(3) a:hover .fa {
 	color: #0077b5;
 }
 
-.socials-ul li:nth-child(5) a:hover .fa {
-	color: #bc2a8d;
-}
-
-.socials-ul li:nth-child(6) a:hover .fa {
+.socials-ul li:nth-child(4) a:hover .fa {
 	color: #BB001B;
 }
 
-.socials-ul li:nth-child(7) a:hover .fa {
-	color: #FFFC00;
-}
 
 @media screen and (max-width: 1200px) {
 	.main-container {
