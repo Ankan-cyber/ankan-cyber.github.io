@@ -540,6 +540,9 @@ h6 {
 	color: #0adc06a5;
 }
 
+.socials-ul li:nth-child(6) a:hover .fa {
+	color: #fd0;
+}
 
 @media screen and (max-width: 1200px) {
 	.main-container {
