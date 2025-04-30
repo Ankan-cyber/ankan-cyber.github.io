@@ -26,14 +26,17 @@ function setTheme(mode) {
 
 	if (mode == 'blue') {
 		document.getElementById('theme-style').href = 'blue.css'
+		document.getElementsByClassName('cf-turnstile')[0].setAttribute('data-theme', 'dark');
 	}
-
+	
 	if (mode == 'green') {
 		document.getElementById('theme-style').href = 'green.css'
+		document.getElementsByClassName('cf-turnstile')[0].setAttribute('data-theme', 'dark');
 	}
-
+	
 	if (mode == 'purple') {
 		document.getElementById('theme-style').href = 'purple.css'
+		document.getElementsByClassName('cf-turnstile')[0].setAttribute('data-theme', 'dark');
 	}
 
 	localStorage.setItem('theme', mode)
