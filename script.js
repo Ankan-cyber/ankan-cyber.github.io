@@ -21,6 +21,7 @@ for (let i = 0; themeDots.length > i; i++) {
 function setTheme(mode) {
 	if (mode == 'light') {
 		document.getElementById('theme-style').href = 'default.css'
+		document.getElementsByClassName('cf-turnstile')[0].setAttribute('data-theme', 'light');
 	}
 
 	if (mode == 'blue') {
@@ -68,3 +69,18 @@ let options = {
 };
 
 let typed = new Typed('#typed', options);
+
+// Turnstile Script
+window.onload = function () {
+	const form = document.getElementById('contact-form');
+
+	form.addEventListener('submit', function (event) {
+		const turnstileToken = document.querySelector('[name="cf-turnstile-response"]').value;
+
+		if (!turnstileToken) {
+			event.preventDefault();
+			alert('Please complete the CAPTCHA verification.');
+			return false;
+		}
+	});
+}

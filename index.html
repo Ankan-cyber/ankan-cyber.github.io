@@ -21,7 +21,7 @@
 <call-us-selector phonesystem-url="https://1159.3cx.cloud" party="ankanroy"></call-us-selector>
 <script defer="defer" src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js"></script>
 <script defer="defer" src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer async></script>
 
 <body>
 
@@ -279,18 +279,19 @@
 					<a name="contact"></a>
 
 					<label>Name</label>
-					<input class="input-field" type="text" name="name" aria-label="name" required>
+					<input class="input-field" type="text" name="name" aria-label="name" minlength="2" required>
 
 					<label>Subject</label>
-					<input class="input-field" type="text" name="subject" aria-lavel="subject" required>
+					<input class="input-field" type="text" name="subject" aria-lavel="subject" minlength="5" required>
 
 					<label>Email</label>
-					<input class="input-field" type="text" name="email" required
-						pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" aria-label="email">
+					<input class="input-field" type="email" name="email" required aria-label="email">
 
 					<label>Message</label>
-					<textarea class="input-field" name="message" aria-label="message"></textarea>
-					<div class="h-captcha" data-sitekey="df9678fe-13ee-46ee-adc8-2d6ee8eca784"></div>
+					<textarea class="input-field" minlength="8" name="message" aria-label="message" required></textarea>
+
+					<div class="cf-turnstile" data-sitekey="0x4AAAAAAABT5rh5c_jGhISR" data-theme="dark"></div>
+
 					<input id="submit-btn" type="submit" value="Send">
 				</form>
 				<div class="social-links">
@@ -318,6 +319,7 @@
 	</section>
 
 	<script type="text/javascript" src="script.js" defer></script>
+
 </body>
 
 </html>
