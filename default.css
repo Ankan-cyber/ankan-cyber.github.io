@@ -14,7 +14,7 @@
 
 	--rulerColor: black;
 	--buttonColor: black;
-
+	--buttonDisabled: rgba(0, 0, 0, 0.233);
 
 }
 
@@ -530,18 +530,14 @@ h6 {
 }
 
 .socials-ul li:nth-child(3) a:hover .fa {
-	color: #0077b5;
-}
-
-.socials-ul li:nth-child(4) a:hover .fa {
 	color: #BB001B;
 }
 
-.socials-ul li:nth-child(5) a:hover .fa {
+.socials-ul li:nth-child(4) a:hover .fa {
 	color: #0adc06a5;
 }
 
-.socials-ul li:nth-child(6) a:hover .fa {
+.socials-ul li:nth-child(5) a:hover .fa {
 	color: #fd0;
 }
 
