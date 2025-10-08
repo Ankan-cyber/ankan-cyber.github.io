@@ -4,12 +4,11 @@ import { motion } from "framer-motion";
 import { Mail, Phone, X, Github, Coffee, Send, Linkedin } from "lucide-react";
 import Turnstile from "react-turnstile";
 import { TryHackMeBadge } from "./TryHackMeBadge";
-import { li } from "framer-motion/client";
+import { form, li } from "framer-motion/client";
 
 export function Contact() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [turnstileError, setTurnstileError] = useState(false);
 
   const socialLinks = [
     {
@@ -54,15 +53,12 @@ export function Contact() {
     e.preventDefault();
     
     if (!turnstileToken) {
-      setTurnstileError(true);
       return;
     }
 
-    setTurnstileError(false);
     setFormStatus("submitting");
     
     const formData = new FormData(e.currentTarget);
-    formData.append("cf-turnstile-response", turnstileToken);
 
     try {
       const response = await fetch("https://formcarry.com/s/Zc_v4xd08og", {
@@ -185,27 +181,17 @@ export function Contact() {
                     sitekey="0x4AAAAAAABT5rh5c_jGhISR"
                     onVerify={(token: string) => {
                       setTurnstileToken(token);
-                      setTurnstileError(false);
                     }}
                     theme="dark"
                   />
                 </div>
-                {turnstileError && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm mt-2 text-center md:text-left"
-                  >
-                    ⚠ Please complete the CAPTCHA verification
-                  </motion.p>
-                )}
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={formStatus === "submitting"}
-                className="group relative w-full px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={formStatus === "submitting" || !turnstileToken}
+                className="group relative w-full px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {formStatus === "submitting" ? "Sending..." : "Send Message"}
