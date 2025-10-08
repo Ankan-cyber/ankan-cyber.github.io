@@ -67,6 +67,9 @@ export function Contact() {
     try {
       const response = await fetch("https://formcarry.com/s/Zc_v4xd08og", {
         method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
         body: formData,
       });
 
@@ -239,7 +242,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 mt-8"
           >
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Connect With Me</h3>
@@ -247,7 +250,7 @@ export function Contact() {
                 I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 mb-6">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
@@ -267,19 +270,18 @@ export function Contact() {
                   </motion.a>
                 ))}
               </div>
-            </div>
 
-            {/* TryHackMe Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="pt-8 border-t border-slate-800"
-            >
-              <h4 className="text-lg font-semibold text-white mb-4">Cybersecurity Journey</h4>
-              <TryHackMeBadge />
-            </motion.div>
+              {/* TryHackMe Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="mt-6"
+              >
+                <TryHackMeBadge />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
