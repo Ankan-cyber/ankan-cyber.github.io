@@ -1,0 +1,51 @@
+{
+  "name": "ankan-cyber.github.io",
+  "version": "1.0.0",
+  "description": "Modern portfolio website built with Next.js, TypeScript, and Tailwind CSS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build && next export"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ankan-cyber/ankan-cyber.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "ankan-roy"
+  ],
+  "author": "Ankan Roy <contact@mail.ankanroy.in>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ankan-cyber/ankan-cyber.github.io/issues"
+  },
+  "homepage": "https://github.com/Ankan-cyber/ankan-cyber.github.io#readme",
+  "dependencies": {
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.22",
+    "lucide-react": "^0.545.0",
+    "next": "^15.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-turnstile": "^1.1.4",
+    "tailwind-merge": "^3.3.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^19.2.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
