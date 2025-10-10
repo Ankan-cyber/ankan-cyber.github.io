@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Code2, Shield, Wifi, Sparkles, Award, Rocket } from "lucide-react";
 import { Meteors } from "./ui/meteors";
+import Image from "next/image";
 
 export function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -56,10 +57,13 @@ export function Hero() {
               className="lg:hidden mb-8 flex justify-center"
             >
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-violet-500/30 shadow-[0_0_40px_rgba(139,92,246,0.3)]">
-                <img
-                  src="/images/Ankan.jpg"
+                <Image
+                  src="/images/ankan.jpg"
                   alt="Ankan Roy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 192px, 100vw"
+                  className="object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-violet-500/10" />
               </div>
@@ -153,10 +157,13 @@ export function Hero() {
               className="flex justify-center"
             >
               <div className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-violet-500/30 shadow-[0_0_60px_rgba(139,92,246,0.4)] hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/images/Ankan.jpg"
+                <Image
+                  src="/images/ankan.jpg"
                   alt="Ankan Roy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 288px, 100vw"
+                  className="object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-violet-500/20" />
               </div>

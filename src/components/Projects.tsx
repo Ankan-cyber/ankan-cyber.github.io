@@ -13,7 +13,7 @@ export function Projects() {
       description:
         "A comprehensive medication management app that helps users track their medications, set reminders, and manage their health effectively",
       link: "https://pillpal.ankanroy.in",
-      image: "/images/pillpal.JPG",
+      image: "/images/pillpal.jpg",
       tags: ["Next.js", "MongoDB", "Ollama AI"],
       color: "from-emerald-500 to-teal-500",
     },
@@ -22,7 +22,7 @@ export function Projects() {
       description:
         "Ankan Roy's Shop is an Ecommerce website built using Next.js framework with product pages, accounts, categories, checkout and Razorpay payment gateway.",
       link: "https://shop.ankanroy.in",
-      image: "/images/shop.JPG",
+      image: "/images/shop.jpg",
       tags: ["Next.js", "Razorpay", "Admin Panel"],
       color: "from-purple-500 to-pink-500",
     },
@@ -31,7 +31,7 @@ export function Projects() {
       description:
         "Indian Recipe Finder is a full-stack web application that allows you to search for and filter over 7000+ Indian recipes based on cuisine and diet.",
       link: "https://recipes.ankanroy.in",
-      image: "/images/indianrecipefinder.JPG",
+      image: "/images/indianrecipefinder.jpg",
       tags: ["Next.js", "API", "Search"],
       color: "from-orange-500 to-red-500",
     },
@@ -40,7 +40,7 @@ export function Projects() {
       description:
         "React based web application that allows users to download their Resume.io resume in PDF format for free",
       link: "https://resumeio.ankanroy.in",
-      image: "/images/resumeio2pdf.JPG",
+      image: "/images/resumeio2pdf.jpg",
       tags: ["Next.js", "PDF", "Tool"],
       color: "from-fuchsia-500 to-violet-500",
     },
@@ -49,7 +49,7 @@ export function Projects() {
       description:
         "Ankan Roy's Blog is a personal blogging website built using Next.js framework with blog posts on various topics and tags for easy navigation.",
       link: "https://blog.ankanroy.in",
-      image: "/images/blog.JPG",
+      image: "/images/blog.jpg",
       tags: ["Next.js", "MDX", "Blog"],
       color: "from-violet-500 to-purple-500",
     },
@@ -58,7 +58,7 @@ export function Projects() {
       description:
         "CloudNotePro is a powerful and easy-to-use note-taking app with encrypted passwords. Your notes are always safe and secure in the cloud.",
       link: "https://notes.ankanroy.in",
-      image: "/images/CloudNotePro.JPG",
+      image: "/images/cloudnotepro.jpg",
       tags: ["React", "Encryption", "Cloud"],
       color: "from-violet-500 to-fuchsia-500",
     },
@@ -67,7 +67,7 @@ export function Projects() {
       description:
         "React based modern news app where you can manifest all your news needs. Daily updates and the best news to keep you informed.",
       link: "https://news.ankanroy.in",
-      image: "/images/newswallah.JPG",
+      image: "/images/newswallah.jpg",
       tags: ["React", "News API", "Real-time"],
       color: "from-red-500 to-orange-500",
     },
@@ -76,7 +76,7 @@ export function Projects() {
       description:
         "React based text manipulation web app, where you can set your text however you like with various formatting options",
       link: "https://ankanroy.in/textutils",
-      image: "/images/textutils.JPG",
+      image: "/images/textutils.jpg",
       tags: ["React", "Tools", "Utility"],
       color: "from-green-500 to-emerald-500",
     },
@@ -131,10 +131,13 @@ export function Projects() {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900 z-10" />
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
 
