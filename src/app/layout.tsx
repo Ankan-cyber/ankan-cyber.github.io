@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" style={{ backgroundColor: '#0f172a' }}>
       <head>
         <link rel="icon" href="/images/favicon.ico" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} style={{ backgroundColor: '#0f172a' }}>{children}</body>
     </html>
   );
 }

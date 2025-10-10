@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -53,9 +54,11 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             {item.image && (
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
+                width={384}
+                height={192}
                 className="w-full h-48 object-cover rounded-t-2xl"
               />
             )}
