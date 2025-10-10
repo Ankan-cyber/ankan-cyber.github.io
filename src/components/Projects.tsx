@@ -137,7 +137,8 @@ export function Projects() {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    loading={idx < 3 ? "eager" : "lazy"}
+                    quality={85}
                   />
                 </div>
 

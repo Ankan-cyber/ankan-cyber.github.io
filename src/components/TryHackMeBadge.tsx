@@ -1,52 +1,75 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export function TryHackMeBadge() {
   const badgeRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (badgeRef.current && typeof window !== 'undefined') {
-      // Store the original document.write
-      const originalWrite = document.write;
-      const writes: string[] = [];
-      
-      // Override document.write to capture the output
-      document.write = function(...args: any[]) {
-        writes.push(args.join(''));
-      };
-      
-      // Create and append script element
-      const script = document.createElement('script');
-      script.src = 'https://tryhackme.com/badge/2529018';
-      script.async = false; // Make it synchronous to capture writes
-      
-      script.onload = () => {
-        // Restore original document.write
-        document.write = originalWrite;
-        
-        // Insert captured HTML
-        if (badgeRef.current && writes.length > 0) {
-          badgeRef.current.innerHTML = writes.join('');
+    // Use Intersection Observer to load badge only when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
         }
-      };
-      
-      script.onerror = () => {
-        // Restore on error too
-        document.write = originalWrite;
-        console.error('Failed to load TryHackMe badge');
-      };
-      
-      document.head.appendChild(script);
-      
-      // Cleanup on unmount
-      return () => {
-        document.write = originalWrite;
-        if (document.head.contains(script)) {
-          document.head.removeChild(script);
-        }
-      };
+      },
+      { rootMargin: '100px' } // Start loading 100px before visible
+    );
+
+    if (badgeRef.current) {
+      observer.observe(badgeRef.current);
     }
+
+    return () => {
+      if (badgeRef.current) {
+        observer.unobserve(badgeRef.current);
+      }
+    };
   }, []);
+
+  useEffect(() => {
+    if (!isVisible || !badgeRef.current || typeof window === 'undefined') return;
+    
+    // Store the original document.write
+    const originalWrite = document.write;
+    const writes: string[] = [];
+    
+    // Override document.write to capture the output
+    document.write = function(...args: any[]) {
+      writes.push(args.join(''));
+    };
+    
+    // Create and append script element
+    const script = document.createElement('script');
+    script.src = 'https://tryhackme.com/badge/2529018';
+    script.async = true; // Make it async for better performance
+    
+    script.onload = () => {
+      // Restore original document.write
+      document.write = originalWrite;
+      
+      // Insert captured HTML
+      if (badgeRef.current && writes.length > 0) {
+        badgeRef.current.innerHTML = writes.join('');
+      }
+    };
+    
+    script.onerror = () => {
+      // Restore on error too
+      document.write = originalWrite;
+      console.warn('TryHackMe badge failed to load - non-critical');
+    };
+    
+    document.head.appendChild(script);
+    
+    // Cleanup on unmount
+    return () => {
+      document.write = originalWrite;
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, [isVisible]);
 
   return (
     <div 

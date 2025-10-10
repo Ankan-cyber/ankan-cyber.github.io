@@ -1,8 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap', // Prevent invisible text while loading
+  preload: true,
+  variable: '--font-inter',
+});
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#0f172a',
+}
 
 export const metadata: Metadata = {
   title: "Ankan Roy - Full Stack Developer & Cyber Security Student",
@@ -25,6 +37,18 @@ export default function RootLayout({
     <html lang="en" className="dark" style={{ backgroundColor: '#0f172a' }}>
       <head>
         <link rel="icon" href="/images/favicon.ico" />
+        
+        {/* Preconnect to improve performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/ankan.jpg"
+          imageSrcSet="/images/ankan.jpg"
+        />
       </head>
       <body className={inter.className} style={{ backgroundColor: '#0f172a' }}>{children}</body>
     </html>

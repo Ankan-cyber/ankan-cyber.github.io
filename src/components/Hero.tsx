@@ -61,9 +61,10 @@ export function Hero() {
                   src="/images/ankan.jpg"
                   alt="Ankan Roy"
                   fill
-                  sizes="(max-width: 768px) 192px, 100vw"
+                  sizes="192px"
                   className="object-cover"
                   priority
+                  quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-violet-500/10" />
               </div>
@@ -161,9 +162,10 @@ export function Hero() {
                   src="/images/ankan.jpg"
                   alt="Ankan Roy"
                   fill
-                  sizes="(min-width: 1024px) 288px, 100vw"
+                  sizes="288px"
                   className="object-cover"
                   priority
+                  quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-violet-500/20" />
               </div>
