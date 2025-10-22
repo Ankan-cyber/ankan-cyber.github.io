@@ -22,19 +22,27 @@ export function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, mobile: boolean) => {
     e.preventDefault();
-    
-    if (href === "#") {
-      // Scroll to top for Home
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      // Scroll to section
-      const element = document.getElementById(href.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+
+    // Close mobile menu first if needed
+    if (mobile) {
+      setMobileMenuOpen(false);
     }
+
+    // Small delay to allow menu to start closing before scrolling
+    setTimeout(() => {
+      if (href === "#") {
+        // Scroll to top for Home
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Scroll to section
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, mobile ? 0 : 0);
   };
 
   return (
@@ -71,7 +79,7 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
                   className="text-slate-300 hover:text-violet-400 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
-                  onClick={(e) => handleNavClick(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href, false)}
                 >
                   {item.name}
                 </motion.a>
@@ -126,10 +134,7 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => {
-                    handleNavClick(e, item.href);
-                    setMobileMenuOpen(false);
-                  }}
+                  onClick={(e) => handleNavClick(e, item.href, true)}
                   className="text-slate-300 hover:text-violet-400 block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer"
                 >
                   {item.name}
