@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -48,6 +49,26 @@ export default function RootLayout({
           as="image"
           href="/images/ankan.jpg"
           imageSrcSet="/images/ankan.jpg"
+        />
+
+        {/* Brevo Conversations Widget */}
+        <Script
+          id="brevo-conversations"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(d, w, c) {
+                w.BrevoConversationsID = '65ed518d8f022410551d3d53';
+                w[c] = w[c] || function() {
+                  (w[c].q = w[c].q || []).push(arguments);
+                };
+                var s = d.createElement('script');
+                s.async = true;
+                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+                if (d.head) d.head.appendChild(s);
+              })(document, window, 'BrevoConversations');
+            `,
+          }}
         />
       </head>
       <body className={inter.className} style={{ backgroundColor: '#0f172a' }}>{children}</body>
