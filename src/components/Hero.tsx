@@ -28,7 +28,7 @@ export function Hero() {
 
   const highlights = [
     { icon: Sparkles, label: "50+ Projects", color: "text-violet-400" },
-    { icon: Award, label: "4+ Years", color: "text-fuchsia-400" },
+    { icon: Award, label: "5+ Years", color: "text-fuchsia-400" },
     { icon: Rocket, label: "10+ Tech Stack", color: "text-purple-400" },
   ];
 
